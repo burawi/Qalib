@@ -21,8 +21,9 @@ class Qalib {
             return $vars[$m[1]];
         },$content);
         extract($vars);
+        ob_start();
         $content = eval('?> '.$content);
-        return $content;
+        return ob_get_clean();
     }
 }
 ?>
